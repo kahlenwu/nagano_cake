@@ -1,0 +1,10 @@
+<%= form_with url: products_search_path, method: :get, locla: true do |f| %>
+  <div class="input-group">
+    <%= f.text_field :kyeword, placeholder: "どんなケーキをお探しですか？", class:"form-control-sm border border-secondary" %>
+    <span class="input-group-append">
+      <%= button_tag type: 'submit', class: "btn btn-outline-secondary btn-sm" do %>
+        <i class="fas fa-search"></i>
+      <% end %>
+    </span>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+<table class="table-primary ">
+  <thead>
+    <tr class="text-center">ジャンル検索</tr>
+  </thead>
+
+  <tbody>
+    <% genres.each do |genre| %>
+      <tr class="text-center">
+        <td>
+          <% link_to genre_search_path('search[value]': genre.name, 'search[how]': "math") do %>
+            <div class="px-3"><%= genre.name %></div>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

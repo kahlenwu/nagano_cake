@@ -1,5 +1,5 @@
 class OrderDetail < ApplicationRecord
-  after_update: check_making_status
+  after_update :check_making_status
 
   belongs_to :order
   belongs_to :product

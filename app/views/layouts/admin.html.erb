@@ -13,11 +13,7 @@
       <nav class="navbar navbar-expand-lg shadow navbar-light bg-white">
         <div class="container-fluid">
           <div class="d-flex align-items-center">
-            <%= link_to image_tag("logo.png", size: "180x50"), root_path %>
-          </div>
-            <% if customer_signed_in? %>
-              <p class"text-light">ようこそ、<%= current_customer.last_name %>さん！</p>
-            <% end %>
+            <%= link_to image_tag("logo.png", size: "180x50"), admin_root_path %>
 
             <!-- naviボタン-->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,18 +23,21 @@
             <!--ボタンの中-->
             <div class="collapse navbar-collapse">
              <ul class="navbar-nav me-auto">
-              <% if customer_signed_in? %>
+              <% if admin_signed_in? %>
                 <li>
-                  <%= link_to "マイページ", customer_path(current_customer.id, class:"nav-link text-dark") %>
+                  <%= link_to "商品一覧", admin_products_path, class:"nav-link text-dark" %>
                 </li>
                 <li>
-                  <%= link_to "商品一覧", products_path, class:"nav-link text-dark" %>
+                  <%= link_to "会員一覧", admin_customers_path, class:"nav-link text-dark" %>
                 </li>
                 <li>
-                  <%= link_to "カート", cart_products_path, class:"nav-link text-dark" %>
+                  <%= link_to "注文履歴一覧", admin_root_path, class:"nav-link text-dark" %>
                 </li>
                 <li>
-                  <%= link_to "ログアウト", destroy_customer_session_path, class:"nav-link text-dark" %>
+                  <%= link_to "ジャンル一覧", admin_genres_path, class:"nav-link text-dark" %>
+                </li>
+                <li>
+                  <%= link_to "ログアウト", destroy_admin_session_path, class:"nav-link text-dark" %>
                 </li>
                 <% else %>
                 <li>
@@ -68,7 +67,7 @@
     <%= yield %>
       </div>
     </main>
-    <footer class="text-center", style="height:50px ">
+    <footer class="text-center", style="height:50px">
       <div class="container mt-5">
         <div class="row">
           <div class="mx-auto">
